@@ -2,7 +2,7 @@ import { start } from "https://deno.land/x/denops_std@v0.5/mod.ts";
 
 start(async (vim) => {
   vim.register({
-    async benchmarkGetLines(): Promise<void> {
+    async test(): Promise<void> {
       console.log("1000");
       await vim.call("getline", 1, 1000) as string[];
       console.log("2000");

@@ -1,4 +1,4 @@
-import { start } from "https://deno.land/x/denops_std@v0.5/mod.ts";
+import { start } from "https://deno.land/x/denops_std@v0.7/mod.ts";
 
 start(async (vim) => {
   vim.register({

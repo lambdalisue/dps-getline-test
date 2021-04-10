@@ -1,18 +1,19 @@
-import { start } from "https://deno.land/x/denops_std@v0.3/mod.ts";
+import { start } from "https://deno.land/x/denops_std@v0.5/mod.ts";
 
 start(async (vim) => {
   vim.register({
     async benchmarkGetLines(): Promise<void> {
-      const start = Date.now();
-      const content = await vim.call("getline", 1, "$") as string[];
-      const end = Date.now();
-      const diff = end - start;
-      await vim.execute("echomsg printf('%s %s %s %s', s, e, d, c)", {
-        s: start,
-        e: end,
-        d: diff,
-        c: content.length,
-      });
+      console.log("1000");
+      await vim.call("getline", 1, 1000) as string[];
+      console.log("2000");
+      await vim.call("getline", 1, 2000) as string[];
+      console.log("5000");
+      await vim.call("getline", 1, 5000) as string[];
+      console.log("10000");
+      await vim.call("getline", 1, 10000) as string[];
+      console.log("all");
+      await vim.call("getline", 1, "$") as string[];
+      console.log("complete");
     },
   });
 
